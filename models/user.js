@@ -12,6 +12,13 @@ const userSchema = new mongoose.Schema({
         required: true,
         min: 6,
         max: 255
+    },
+
+    refreshToken: {
+        type: String
+    },
+    accessToken: {
+        type: String
     }
 });
 
