@@ -1,0 +1,143 @@
+server.port: 7755
+server.ssl.key-store: classpath:key/star_gaka_vn_cert.pfx
+server.ssl.key-store-password: 123456
+server.ssl.keyStoreType: PKCS12
+
+# Database
+spring.datasource.url: jdbc:postgresql://172.16.1.26:7732/vmedb_${spring.profiles.active}
+spring.datasource.username: vmeuser
+spring.datasource.password: Pass!234
+spring.datasource.driver-class-name: org.postgresql.Driver
+spring.jpa.show-sql: false
+spring.datasource.testWhileIdle: true
+spring.datasource.validationQuery: SELECT 1
+spring.jpa.database: POSTGRESQL
+spring.datasource.platform: postgres
+spring.jpa.hibernate.ddl-auto: none
+
+# Spring cloud
+spring:
+  http:
+    multipart:
+      max-file-size: 512MB
+      max-request-size: 512MB
+  servlet:
+    multipart:
+      max-file-size: 512MB
+      max-request-size: 512MB
+  cloud:
+    stream:
+      bindings:
+        userChangeChanel:
+          destination:  userChangeTopic
+          content-type: application/json
+        balanceChangeChanel:
+          destination:  balanceChangeTopic
+          content-type: application/json
+        paymentChangeChanel:
+          destination: paymentChangeTopic
+          content-type: application/json
+          group: financeGroup
+      kafka:
+        binder:
+          zkNodes: 172.16.1.26
+          brokers: 172.16.1.26
+  
+#Zuul Proxy Server
+serviceUrl: https://gaka.vn:7755
+webUrl: https://gaka.vn
+referUrl: https://gaka.vn/home?referCode=
+accessTokenUri: ${serviceUrl}/oauth/token
+fileUploadPath: /home/upload/
+imageUrl: ${serviceUrl}/v1/resource/image/
+
+# Game360
+game360:
+  rest: http://dev.games360.vn/rest
+  username: VME
+  pswd: 6ad18a278e9a303873eba508f46cbba6
+
+# AWS config
+aws:
+  accessKeyId: ENC(TKCMq//QPUmo4OPnLQ88plwcDtbaVD4e2ioNQkBb4RY=)
+  secretAccessKey: ENC(Ywit/76wIQ/shY/51fwpT3CEiHNydAXHCcdngClXyGCCR7GghJKPvRQSNyWUd2F4dX0I6nTpDj4=)
+  region: ap-southeast-1
+email:
+  sender: admin1@paytech.vn
+  senderName: Gaka
+sms:
+  sender: 0947897654
+  senderName: Icom
+  limitCheckMinutes: 2
+  expiredTimeMinutes: 1
+  adminPhone: o981068900
+  username: paytech
+  password: paytech@123
+  url: http://125.212.193.29:8082/BRANDNAME_API/services/EVN_API
+  type: Gaka.VN
+      
+# JWT
+jwt: 
+  clientId: 123
+  clientSecret: 123
+  expire: 315360000
+
+  # config google api
+google:
+  clientId: 240601786517-h9ngtfvslbpakqdk8qk3qii0qpj84u1t.apps.googleusercontent.com
+facebook:
+  tokenUrl: https://graph.facebook.com/me?fields=id&access_token=
+
+# User 
+user:
+  email: user.dev@gmail.com
+  phone:  0981068901
+  verifyKey: abcd1234
+  password: Pass!234
+  
+testPhone: 0947897654,dev01.vn@gmail.com,dev02.vn@gmail.com,dev03.vn@gmail.com,dev04.vn@gmail.com,
+
+
+#Setting logging levels
+logging:
+  file: logs/${spring.application.name}.log
+  pattern:
+    console: "%d{HH:mm:ss} %-5level %logger{36}:%L - %msg%n"
+    file: "%d{HH:mm:ss} %-5level %logger{36}:%L - %msg%n"
+  level:
+     vn.vme: DEBUG
+     com.netflix: WARN
+     org.springframework: WARN
+     org.springframework.security.web: WARN
+     org.springframework.context: WARN
+     org.apache: WARN
+     org.apache.kafka.clients.producer: ERROR
+     org.apache.kafka.clients.consumer: ERROR
+     com.ulisesbocchio: WARN
+     com.ulisesbocchio.jasyptspringboot: WARN
+     springfox.documentation.spring.web: WARN
+     org.hibernate: WARN
+
+# Alepay config
+alepay:
+  customMerchantId: vme2021
+  currency: VND
+  orderDescription: Nap ngan luong Gaka
+  tokenKey: dhklHv7DCqvvxtH4pQWDQhaTXGkTpo
+  checksumKey: F5D0O5uSjNlZkMZpP822N3EgKy7TkS
+  baseUrl: https://alepay-v3-sandbox.nganluong.vn/api/v3/checkout
+  default: VME
+  provider: ALEPAY
+
+# Momo config
+momo:
+  secretKey: VwmMxVBpt3HAx4wx5KS2SzuS3adYp3j7
+  partnerCode: MOMOT1ED20211105
+  accessKey: qR1V4ehCICkdtp6L
+  orderInfo: Nap Momo Gaka
+  requestType: captureWallet
+  extraData:
+  lang: vi
+  provider: MOMO
+    
+      

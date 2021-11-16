@@ -1,0 +1,6 @@
+{ 
+  "phone": "0981068900",
+  "sender": "AWS SNS",
+  "subject": "Verify code",
+  "message": "You verification code is 123456"
+}

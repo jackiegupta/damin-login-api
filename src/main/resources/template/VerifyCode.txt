@@ -1,0 +1,1 @@
+[Gaka] ${verifyCode} là mã OTP xác thực của bạn

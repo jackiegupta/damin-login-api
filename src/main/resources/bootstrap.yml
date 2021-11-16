@@ -1,0 +1,22 @@
+server:
+  port: 7755
+spring:
+  application:
+    name: vme-gate-api
+  profiles.active: local 
+  http:
+    multipart:
+      max-file-size: 512MB
+      max-request-size: 512MB
+  servlet:
+    multipart:
+      max-file-size: 512MB
+      max-request-size: 512MB
+#Flyway
+spring.flyway.enabled: false
+spring.flyway.schemas: gate_schema
+jwt.signingKey: signing-key    
+key-store-password: Pass!234
+
+
+  

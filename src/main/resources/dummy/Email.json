@@ -1,0 +1,6 @@
+{ 
+  "receiver": "m-tech@gmail.com",
+  "sender": "Gaka@gmail.com",
+  "subject": "Verification create user",
+  "content": "You are registering new user, please click this link to verify your email"
+}

@@ -1,0 +1,13 @@
+{
+	"userName": "simbatla",
+	"email": "m-tech@gmail.com",
+	"phone": "0981065555",
+	"fullName ": "NGUYEN VAN AN",
+	"gender": "M",
+	"password": "Pass!234",
+	"birthDate": "1983-11-19",
+	"roles":[
+		{"id":"2"},
+		{"id":"4"}
+	]
+}
